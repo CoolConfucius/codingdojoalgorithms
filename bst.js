@@ -54,14 +54,56 @@ btnode.prototype.find = function (val){
 }
 
 
+// bst.prototype.min = function(){
+//   if(!this.root) return this;
+//   else return this.root.min(); 
+// }
 
-var bst = new bst(); 
-bst.add(20).add(10).add(0);
+// btnode.prototype.min = function(){
+//   if(this.left) this.left.min();
+//   else return this; 
+// }
+
+// bst.prototype.max = function(){
+//   if(!this.root) return this;
+//   else return this.root.max(); 
+// }
+
+// btnode.prototype.max = function(){
+//   if(this.right) this.right.max();
+//   else return this; 
+// }
+
+bst.prototype.traverse = function(i){
+  var cur = i || this.root; 
+  console.log(this.root);
+  if(cur.left) (this.traverse(cur.left));
+  console.log(cur.val);
+  if(cur.right) (this.traverse(cur.right));
+  return; 
+}
+
+btnode.prototype.traverse = function(i){
+  var cur = i || this; 
+  if(cur.left) (this.left.traverse());
+  console.log(cur.val);
+  if(cur.right) (this.right.traverse());
+  return; 
+}
 
 
-console.log(bst);
 
-console.log(bst.find(20));
-console.log(bst.find(10));
-console.log(bst.find(0));
-console.log(bst.find(5));
+var bstex = new bst(); 
+bstex.add(20).add(10).add(0);
+
+
+
+console.log(bstex);
+
+console.log(bstex.find(20));
+console.log(bstex.find(10));
+console.log(bstex.find(0));
+console.log(bstex.find(5));
+
+// bstex.root.traverse();
+bstex.traverse();
